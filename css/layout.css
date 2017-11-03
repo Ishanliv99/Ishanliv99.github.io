@@ -1,0 +1,340 @@
+.content-right {
+	float: right;
+}
+
+.content-left {
+	float: left;
+}
+
+.main-container {
+	width: 100%;
+	/*background: blue;*/
+}
+
+.header-container-top {
+	background:#7dd9e8;
+	padding: 20px 0px 16px 0px;
+	min-width: 1002px;
+}
+
+.content {
+	width: 938px;
+	margin: auto;
+	/*background: red;*/
+}
+
+.form-header {
+	padding: 20px 24px 9px 24px;
+}
+
+.search-box {
+	line-height: 24px;
+	width: 273px;
+	height: 22px;
+	padding-left: 4px;
+	background-repeat: no-repeat;
+	background-image: url(../images/Search.png);
+	border: none;
+	font-size: 7pt;
+	text-indent: 6px;
+}
+
+.submit {
+	width: 54px;
+	height: 22px;
+	background-image: url(../images/Submit.png);
+	border: none;
+	color: white;
+	font-size: 7pt;
+}
+
+.header-content-right {
+	width: 200px;
+	/*background-color: red*/;	
+	float: right;
+	padding: 7px 0px;
+}
+
+.head-top-menu {
+	width: 133px;
+	/*background-color: black;*/
+	float: right;
+}
+
+.head-top-menu li {
+	list-style: none;
+	padding-left: 5px;
+	/*margin: 0px;*/
+	float: left;
+	font-size: 8pt;
+	padding-top: 4px;
+}
+
+.head-menu {
+	padding-left: 6px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+.header-container-bottom {
+	background-color: #F5F5F5;
+	/*padding: 13px 0px;*/
+	font-size: 9pt;
+	line-height: 40px; 
+	min-width: 1002px;
+}
+
+.head-bottom-menu li {
+	list-style: none;
+	padding-left: 8px;
+	margin-right: 23px;
+	float: left;
+}
+
+.active-inactive {
+	padding-right: 6px;
+}
+
+.image-header-right {
+	padding-left: 16px;
+	background-image: url(../images/columns.png);
+	background-repeat: no-repeat;
+	padding-right: 18px;
+}
+
+.image-header-right.active-column {
+	padding-left: 16px;
+	background-image: url(../images/columns-active.png);
+	background-repeat: no-repeat;
+	padding-right: 18px;
+}
+
+.image-header-left {
+	padding-left: 24px;
+	background-image: url(../images/request.png);
+	background-repeat: no-repeat;
+}
+
+.image-header-left.active-req {
+	padding-left: 24px;
+	background-image: url(../images/request-active.png);
+	background-repeat: no-repeat;
+}
+
+
+.body-container {
+	padding: 30px 0px;
+}
+
+.body-content{
+	width: 938px;
+	margin: auto;
+	background-image: url(../images/background.png);
+	/*background-repeat: repeat*/;
+}
+
+.body-content-left {
+	width: 194px;
+	float: left;
+	font-size: 10pt;
+	background-color: #FFFFFF;
+}
+
+.block-title {
+	background-color: #2FC1DA;
+	color: white;
+	line-height: 42px;
+	padding: 0px 12px;
+	font-size: 12pt;	
+}
+
+.body-menu-top{
+	background-color: #F5F5F5;
+}
+
+.body-menu-top li{
+	line-height: 16px;
+	list-style: none;
+	padding: 12px;
+}
+
+.body-menu-top li:hover{
+	background-color: #FFFFFF;
+}
+
+.body-menu{
+	background-color: #F5F5F5;
+}
+
+.body-menu li{
+	line-height: 16px;
+	list-style: none;
+	padding: 12px;
+	font-size: 10pt;
+}
+
+.body-menu li:hover{
+	background-color: #FFFFFF;
+}
+
+.body-content-right {
+	width: 718px;
+	float: right;
+}
+
+.body-inner-left {
+	width: 518px;
+	float: left;
+}
+
+.title {
+	font-weight: normal;
+	line-height: 0px;
+	padding: 12px 0px 22px 0px;
+}
+
+.inner-left-top {
+	width: 520px;
+	background-image: url(../images/box.png);
+	background-repeat: no-repeat;
+	font-size: 11pt;
+	border-bottom: solid #2FC1DA;
+	margin-bottom: 14px;
+}
+
+.tab {
+	width: 258px;
+}
+
+.sub-titles {
+	padding: 11px 90px;
+	font-size: 9pt;
+}
+
+.single-tab {
+	width: 112px;
+}
+
+.tab-designs{
+	list-style: none;
+	float: left;
+	background-image: url(../images/tabs.png);
+	background-repeat: no-repeat;
+	line-height: 28px;
+	padding: 0px 4px;
+	font-size: 9pt;
+	margin: 0px 4px;
+	text-align: center;
+}
+
+.tab-designs.active{
+	background-image: url(../images/tab-active.png);
+	background-repeat: no-repeat;
+	color: white;
+}
+
+.tab-designs:hover {
+	background-image: url(../images/tab-active.png);
+	background-repeat: no-repeat;
+	color: white;		
+}
+
+.inner-left-bottom {
+	margin: 36px 0px;
+}
+
+.mid-section {
+	padding: 16px 0px;
+	border-bottom: thin solid #D8D8D8;
+}
+
+.image-position {
+	position: relative;
+	float: left;
+}
+
+.image-prop {
+	width: 70px;
+}
+
+.image-frame {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.description {
+	width: 440px;
+	font-size: 10pt;
+	margin-left: 5px;
+}
+
+.description li {
+	list-style: none;
+	float: left;
+}
+
+.description h2 {
+	font-size: 1.17em;
+}
+
+.body-inner-right {
+	width: 176px;
+	float: right;
+}
+
+.footer-container {
+	background-color: #727272;
+	min-width: 1002px;
+}
+
+.footer-main {
+	padding: 19px 0px;
+}
+
+.footer-left {
+	font-size: 8pt;
+}
+
+.menu-footer li{
+	list-style: none;
+	float: left;
+}
+
+
+.footer-menu {
+	padding: 0px 7px;
+}
+
+.footer-right {
+	/*float: right;*/
+	color: white;
+	width: 100	px;
+	font-size: 8pt;
+}
+
+.copyright {
+	padding: 0px 3px;
+}
+
+.blue a{
+	color: #6FBECF;
+	font-weight: bold;
+}
+
+.red a{
+	color: #D64A29;
+	font-weight: bold;
+}
+
+.green a{
+	color: #80A33B;
+	font-weight: bold;
+}
+
+.white a{
+	color: #FFFFFF;
+}
