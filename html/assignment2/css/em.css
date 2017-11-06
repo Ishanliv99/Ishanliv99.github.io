@@ -13,35 +13,32 @@
 
 .header-container-top {
 	background:#7dd9e8;
-	padding: 20px 0px 16px 0px;
-	min-width: 1002px;
+	padding: 1.25em 0em 1em 0em;
 }
 
 .content {
-	width: 938px;
+	width: 58.625em;
 	margin: auto;
 	/*background: red;*/
 }
 
 .form-header {
-	padding: 20px 24px 9px 24px;
+	padding: 1.25em 1.5em .5625em 1.5em;
 }
 
 .search-box {
-	line-height: 24px;
-	width: 273px;
-	height: 22px;
-	padding-left: 4px;
+	width: 17.0625em;
+	height: 1.375em;
+	padding-left: .25em;
 	background-repeat: no-repeat;
 	background-image: url(../images/Search.png);
 	border: none;
-	font-size: 7pt;
-	text-indent: 6px;
+	font-size: 8pt;
 }
 
 .submit {
-	width: 54px;
-	height: 22px;
+	width: 3.375em;
+	height: 1.375em;
 	background-image: url(../images/Submit.png);
 	border: none;
 	color: white;
@@ -49,29 +46,28 @@
 }
 
 .header-content-right {
-	width: 200px;
+	width: 12.5em;
 	/*background-color: red*/;	
 	float: right;
-	padding: 7px 0px;
+	padding: 0.4375em 0em;
 }
 
 .head-top-menu {
-	width: 133px;
+	width: 8.3125em;
 	/*background-color: black;*/
 	float: right;
 }
 
-.head-top-menu li {
+.menu-head-top li {
 	list-style: none;
-	padding-left: 5px;
-	/*margin: 0px;*/
+	padding-left: 0.3125em;
+	/*margin: 0em;*/
 	float: left;
 	font-size: 8pt;
-	padding-top: 4px;
 }
 
 .head-menu {
-	padding-left: 6px;
+	padding-left: 0.375em;
 }
 
 a {
@@ -81,85 +77,43 @@ a {
 
 .header-container-bottom {
 	background-color: #F5F5F5;
-	/*padding: 13px 0px;*/
-	font-size: 9pt;
-	line-height: 40px; 
-	min-width: 1002px;
+	padding: 0.9375em 0em 0.75em 0em;
+	font-size: 9pt; 
 }
 
 .head-bottom-menu li {
 	list-style: none;
-	padding-left: 8px;
-	margin-right: 23px;
+	padding-left: 0.5em;
+	margin-right: 1.4375em;
 	float: left;
 }
 
-.active-inactive {
-	padding-right: 6px;
-}
-
 .image-header-right {
-	padding-left: 16px;
-	background-image: url(../images/columns.png);
-	background-repeat: no-repeat;
-	padding-right: 18px;
+	padding: 0em 0.3125em;
 }
-
-.image-header-right.active-column {
-	padding-left: 16px;
-	background-image: url(../images/columns-active.png);
-	background-repeat: no-repeat;
-	padding-right: 18px;
-}
-
-.image-header-left {
-	padding-left: 24px;
-	background-image: url(../images/request.png);
-	background-repeat: no-repeat;
-}
-
-.image-header-left.active-req {
-	padding-left: 24px;
-	background-image: url(../images/request-active.png);
-	background-repeat: no-repeat;
-}
-
 
 .body-container {
-	padding: 30px 0px;
+	padding: 1.3125em 0em;
 }
 
 .body-content{
-	width: 938px;
+	width: 58.625em;
 	margin: auto;
 	background-image: url(../images/background.png);
-	/*background-repeat: repeat*/;
+	background-repeat: repeat;
 }
 
 .body-content-left {
-	width: 194px;
+	width: 12.125em;
 	float: left;
 	font-size: 10pt;
 }
 
-.body-menu-top  li{
-	list-style: none;
-	padding: 10px 12px;
-	line-height: 16px;
-	background-color: #F5F5F5;
-	font-size: 8pt;
-}
-
 .body-menu  li{
 	list-style: none;
-	padding: 8px 12px;
-	line-height: 16px;
+	padding: 0.875em 0.75em;
 	background-color: #F5F5F5;
 	font-size: 8pt;
-}
-
-.body-menu-top li:hover{
-	background-color: #FFFFFF;
 }
 
 .body-menu li:hover{
@@ -169,47 +123,45 @@ a {
 .block-title {
 	background-color: #2FC1DA;
 	color: white;
-	line-height: 42px;
-	padding: 0px 12px;
+	padding: 0.8125em;
 	font-size: 12pt;	
 }
 
 .body-content-right {
-	width: 718px;
+	width: 44.875em;
 	float: right;
 }
 
 .body-inner-left {
-	width: 518px;
+	width: 32.375em;
 	float: left;
 }
 
 .title {
 	font-weight: normal;
-	line-height: 0px;
-	padding: 12px 0px 22px 0px;
+	margin-top: -0.4375em;
 }
 
 .inner-left-top {
-	width: 520px;
+	width: 32.5em;
 	background-image: url(../images/box.png);
 	background-repeat: no-repeat;
 	font-size: 11pt;
-	border-bottom: solid #2FC1DA;
-	margin-bottom: 14px;
+	border-bottom: thick solid #2FC1DA;
+	margin-bottom: 1em;
 }
 
 .tab {
-	width: 258px;
+	width: 16.125em;
 }
 
 .sub-titles {
-	padding: 11px 90px;
+	padding: 0.75em 5.625em;
 	font-size: 9pt;
 }
 
 .single-tab {
-	width: 112px;
+	width: 7em;
 }
 
 .tab-designs {
@@ -217,68 +169,50 @@ a {
 	background-repeat: no-repeat;
 	/*background-size: contain;*/
 	/*background-blend-mode: exclusion;*/
-	padding: 2px 3px;
-	margin: 0px 5px;
-	line-height: 18pt;
+	padding: 0.3125em 0.1825em;
+	margin: 0em 0.3125em;
 	text-align: center;
 	font-size: 9pt;
 	list-style: none;
 	float: left;
 }
 
-.tab-designs:hover {
-	background-image: url(../images/tab-active.png);
-	background-repeat: no-repeat;
-	/*background-size: contain;*/
-}
-
-.tab-designs.active {
+.tab-designs :hover {
 	background-image: url(../images/tab-active.png);
 	background-repeat: no-repeat;
 	/*background-size: contain;*/
 }
 
 .inner-left-bottom{
-	margin-top: 16px;
+	margin-top: 1em;
 }
 
 .mid-section {
 	border-bottom: thin solid #D8D8D8;
-	padding: 13px 0px;
-}
-
-.image-position {
-	position: relative;
-	float: left;
-}
-
-.image-frame {
-	position: absolute;
-	left: 0px;
-	top: 0px;
+	padding: 0.9375em 0em;
 }
 
 .image-prop {
-	width: 70px;
+	width: 4.375em;
 }
 
 .description {
-	width: 438px;
+	width: 27.375em;
 	font-size: 9pt;
 }
 
 .description li {
 	list-style: none;
 	float: left;
-	padding: 0px 3px;
+	padding: 0em 0.1875em;
 }
 
-.description h2 {
-	font-size: 1.17em;
+.description h3 {
+	font-weight: normal;
 }
 
 .body-inner-right {
-	width: 176px;
+	width: 11em;
 	float: right;
 	background-color: #F5F5F5;
 	font-size: 10pt;
@@ -286,53 +220,50 @@ a {
 
 .footer-container {
 	background-color: #727272;
-	min-width: 1002px;
 }
 
 .footer-main{
-	padding: 19px 0px;
+	padding: 1.1875em 0em;
 }
 
 .footer-left li {
 	list-style: none;
-	padding-right: 7px;
+	padding-right: 0.4375em;
 	float: left;
 	color: white;
 	font-size: 8pt;
 }
 
 .footer-menu {
-	padding-left: 7px;
+	padding-left: 0.4375em;
 }
 
 .footer-right {
 	/*float: right;*/
 	color: white;
-	width: 100	px;
+	width: 6.25em;
 	font-size: 8pt;
 }
 
 .copyright {
-	padding: 0px 3px;
+	padding: 0em 0.1875em;
 }
 
-.blue a{
+.blue {
 	color: #6FBECF;
 	font-weight: bold;
 }
 
-.red a{
+.red {
 	color: #D64A29;
 	font-weight: bold;
 }
 
-.green a{
+.green {
 	color: #80A33B;
 	font-weight: bold;
 }
 
-.white a{
-	color: #FFFFFF;
-}
+@media screen and ma
 
 
