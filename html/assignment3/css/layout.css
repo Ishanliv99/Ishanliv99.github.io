@@ -283,10 +283,14 @@
     padding: 6px 14px 0px 14px;
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 769px) {
+    
+    .header-container-top{
+        min-width: 99.1em;
+    }
 
     .header-content-top {
-        width: 1170px;
+        width: 96.84121622em;
         margin: auto;
         padding: 28px 0px 30px 8px;
     }
@@ -299,7 +303,7 @@
         padding: 0px;
         float: right;
         display: inline;
-        width: 700px;
+        width: 55em;
     }
 
     .header-top-menu ul {
@@ -350,8 +354,12 @@
         float: left;
     }
 
+    .header-container-bottom{
+        min-width: 74.3em;
+    }
+
     .header-content-bottom {
-        width: 1170px;
+        width: 73.125em;
         margin: auto;
         padding: 25px 0px 35px 9px;
     }
@@ -364,8 +372,12 @@
         padding: 0px 10px;
     }
 
+    .body-container{
+        min-width: 74.3em;
+    }
+
     .banner-content {
-        width: 1170px;
+        width: 73.125em;
         margin: auto;
     }
 
@@ -384,7 +396,7 @@
     }
 
     .body-content {
-        width: 1170px;
+        width: 73.125em;
         margin: auto;
     }
 
@@ -393,7 +405,7 @@
     }
 
     .body-top-left {
-        width: 770px;
+        width: 48.125em;
         float: left;
     }
     /*.body-top-left h2{
@@ -404,7 +416,7 @@
     }
 
     .body-top-right {
-        width: 270px;
+        width: 16.875em;
         float: right;
     }
 
@@ -498,28 +510,32 @@
     .eye a {
         display: block;
     }
+    
+    .footer-container-top{
+        min-width: 74.3em;
+    }
 
     .footer-content-top {
-        width: 1170px;
+        width: 73.125em;
         margin: auto;
         padding-top: 52px;
     }
 
     .footer-top-left {
-        width: 370px;
+        width: 27.10822379em;
         float: left;
         padding-right: 15px;
         padding-top: 0px;
     }
 
     .footer-top-mid {
-        width: 370px;
+        width: 23.125em;
         float: left;
         padding: 0px 15px;
     }
 
     .footer-mid-box {
-        width: 185px;
+        width: 11.5625em;
         float: left;
     }
 
@@ -528,7 +544,7 @@
     }
 
     .footer-top-right {
-        width: 370px;
+        width: 19em;
         float: left;
         padding-left: 15px;
         padding-top: 0px;s
@@ -543,13 +559,17 @@
     }
 
     .footer-right-desc {
-        width: 268px;
+        width: 19em;
         float: right;
         padding: 0px 16px;
     }
+    
+    .footer-container-bottom{
+        min-width: 74.1em;
+    }
 
     .footer-content-bottom {
-        width: 1170px;
+        width: 96.84121622em;
         margin: auto;
         padding: 14px 0px;
     }
