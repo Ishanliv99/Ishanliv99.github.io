@@ -1,5 +1,5 @@
 var mainWrapper = document.getElementById("main-wrapper");
-mainWrapper.style.background = "red";
+mainWrapper.style.background = "yellow";
 mainWrapper.style.height = "600px";
 mainWrapper.style.width = "1200px";
 mainWrapper.style.position = "relative";
@@ -12,7 +12,9 @@ function Ant(elementId) {
     this.element.style.top = (Math.random() * (parseInt(mainWrapper.style.height) - 20)) + "px";
     this.element.style.height = "20px";
     this.element.style.width = "20px";
-    this.element.style.background = "black";
+    this.element.style.backgroundImage = "url(../2-ant-smasher/ant.png)";
+    this.element.style.backgroundSize = "cover";
+    this.element.style.backgroundRepeat = "none";
     mainWrapper.appendChild(this.element);
 
     var that = this;
@@ -53,13 +55,16 @@ function Ant(elementId) {
 
 }
 
-// console.log(Math.round(Math.random() * 10));
+var antNumber = Math.round(Math.random()*30)+1;
+var antArray = [];
 
-for (var i = 0; i < Math.round(Math.random() * 25)+1; i++) {
-    // var ant = [];
-    var ant = new Ant(i);
+for (var i = 0; i < antNumber; i++) {
+    ant = new Ant(i);
+    antArray.push(i);
 }
 
-// setInterval(function() {
-//     ant.updatePosition();
-// }, 20);
+setInterval(function() {
+    for (var i = 0; i < antArray.length; i++) {
+    antArray(i).updatePosition();
+    }
+}, 20);
