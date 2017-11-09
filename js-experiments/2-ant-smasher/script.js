@@ -14,7 +14,7 @@ function Ant(elementId) {
     this.element.style.width = "20px";
     this.element.style.backgroundImage = "url(../2-ant-smasher/ant.png)";
     this.element.style.backgroundSize = "cover";
-    this.element.style.backgroundRepeat = "none";
+    this.element.style.backgroundRepeat = "no-repeat";
     mainWrapper.appendChild(this.element);
 
     var that = this;
@@ -25,7 +25,7 @@ function Ant(elementId) {
     this.dx = Math.random() * 5;
     this.dy = Math.random() * 5;
 
-    this.updatePosition = function() {
+    this.updatePosition = function(x) {
 
         if (this.x > (parseInt(mainWrapper.style.width) - parseInt(this.element.style.width)) || this.x < 0)
             this.dx = -(this.dx);
@@ -47,24 +47,24 @@ function Ant(elementId) {
     }
 
     // for (var i = 0; i < Math.round(Math.random() * 25); i++) {
-        setInterval(function() {
-        that.updatePosition();
-        }, 20);
+        // setInterval(function() {
+        // that.updatePosition();
+        // }, 20);
     // }   
 
 
 }
 
-var antNumber = Math.round(Math.random()*30)+1;
+var antNumber = Math.round(Math.random()*60)+10;
 var antArray = [];
 
 for (var i = 0; i < antNumber; i++) {
     ant = new Ant(i);
-    antArray.push(i);
+    antArray.push(ant);
 }
 
 setInterval(function() {
     for (var i = 0; i < antArray.length; i++) {
-    antArray(i).updatePosition();
+    antArray[i].updatePosition();
     }
 }, 20);
