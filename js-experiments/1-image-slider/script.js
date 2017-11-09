@@ -1,5 +1,5 @@
 var mainWrapper = document.getElementById("main-wrapper");
-mainWrapper.style.background = "black";
+mainWrapper.style.backgroundImage = "url(../1-image-slider/images/image-back.jpg)";
 mainWrapper.style.overflow = "hidden";
 mainWrapper.style.height = "500px";
 mainWrapper.style.width = "500px";
@@ -55,31 +55,40 @@ prevImage.style.width = "80px";
 prevImage.innerHTML = "Prev";
 imageDiv.appendChild(prevImage);
 
-nextImage.onclick = function() {
-    var counter = setInterval(function() {
-        var switcher = parseInt(mainList.style.left);
-        if (switcher==-(parseInt(listElements.style.width)*images.length))
-            switcher=0;
-        switcher--;
-        if (switcher % 500 == 0) {
-            clearInterval(counter);
-        }
-        mainList.style.left = switcher + "px";
-    }, 0.5);
+flag = 1;
 
+nextImage.onclick = function() {
+    while (flag == 1) {
+        flag = 0;
+        var counter = setInterval(function() {
+            var switcher = parseInt(mainList.style.left);
+            if (switcher == -(parseInt(listElements.style.width) * images.length))
+                switcher = parseInt(listElements.style.width);
+            switcher--;
+            if (switcher % 500 == 0) {
+                clearInterval(counter);
+                flag = 1;
+            }
+            mainList.style.left = switcher + "px";
+        }, 0.5);
+    }
 
 }
 
 prevImage.onclick = function() {
-    var counter = setInterval(function() {
-        var switcher = parseInt(mainList.style.left);
-        if (switcher==0)
-            switcher=-(parseInt(listElements.style.width)*images.length);
-        switcher++;
-        if (switcher % 500 == 0) {
-            clearInterval(counter);
-        }
-        // console.log(parseInt(listElements.style.width)*images.length);
-        mainList.style.left = switcher + "px";
-    }, 0.5);
+    while (flag == 1) {
+        flag = 0;
+        var counter = setInterval(function() {
+            var switcher = parseInt(mainList.style.left);
+            if (switcher == parseInt(listElements.style.width))
+                switcher = -(parseInt(listElements.style.width) * images.length);
+            switcher++;
+            if (switcher % 500 == 0) {
+                clearInterval(counter);
+                flag = 1;
+            }
+            // console.log(parseInt(listElements.style.width)*images.length);
+            mainList.style.left = switcher + "px";
+        }, 0.5);
+    }
 }
