@@ -55,11 +55,6 @@ prevImage.style.width = "80px";
 prevImage.innerHTML = "Prev";
 imageDiv.appendChild(prevImage);
 
-
-flag = "t";
-
-while(flag=="t"){
-    flag="f";
 nextImage.onclick = function() {
     var counter = setInterval(function() {
         var switcher = parseInt(mainList.style.left);
@@ -72,8 +67,7 @@ nextImage.onclick = function() {
         mainList.style.left = switcher + "px";
     }, 0.5);
 
-}
-    flag="t";
+
 }
 
 prevImage.onclick = function() {
