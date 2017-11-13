@@ -1,151 +1,183 @@
 let mainWrapper = document.getElementById('main-wrapper');
+mainWrapper.style.height = '600px';
+mainWrapper.style.position = 'relative';
+
+let getRandom = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 class GameWorld {
-  constructor(elementId) {
-    this.element = elementId;
-  }
-
-  initializeGame() {
-    this.playButton = document.createElement('button');
-    this.playButton.style.height = '50px';
-    this.playButton.style.width = '80px';
-    this.playButton.type = 'button';
-    this.playButton.innerHTML = 'PLAY';
-    this.element.appendChild(this.playButton);
-
-    this.playButton.onclick = () => {
-      this.element.removeChild(this.playButton);
-      this.createGameWorld();
+    constructor(elementId) {
+        this.element = elementId;
     }
-  }
 
-  createGameWorld() {
-    this.background = new GameBackground(this.element);
-    this.background.createBackground();
+    initializeGame() {
+        this.playButton = document.createElement('button');
+        this.playButton.style.height = '50px';
+        this.playButton.style.width = '80px';
+        this.playButton.type = 'button';
+        this.playButton.innerHTML = 'PLAY';
+        this.element.appendChild(this.playButton);
 
-    this.bird = new Bird(this.element);
-    this.bird.createBird();
+        this.element.style.overflow = 'hidden';
 
-    this.gameMovement = setInterval(() => {
-      this.background.updateBackground();
-      this.bird.applyGravity();
-
-      document.onkeydown = (event) => {
-        if (event.keyCode == 32) {
-          this.bird.updateBird();
+        this.playButton.onclick = () => {
+            this.element.removeChild(this.playButton);
+            this.createGameWorld();
         }
-      }
-    }, 100);
-  }
-
-
-  collision() {
-    let birdPosition = parseInt(this.bird.birdImage.style.top);
-    if (birdPosition < 0 || birdPosition > 500)
-      this.finishGame();
-  }
-
-  finishGame() {
-    clearInterval(gameMovement);
-    let resetButton = document.createElement('button');
-    resetButton.style.height = '50px';
-    resetButton.style.width = '80px';
-    resetButton.type = 'button';
-    resetButton.innerHTML = 'RESET';
-    resetButton.style.position = 'absolute';
-    resetButton.style.zIndex = '1';
-    this.element.appendChild(resetButton);
-
-    let text = document.createElement('h1');
-    text.style.color = '#FFF';
-    text.innerHTML = 'GAME OVER!!!!';
-    text.style.top = '150px';
-    text.style.position = 'absolute';
-    text.style.zIndex = '1';
-    this.element.appendChild(text);
-
-    resetButton.onclick = () => {
-      this.element.removeChild(resetButton);
-      this.element.removeChild(text);
-      this.createGameWorld();
     }
-  }
 
-  // applyGravity() {
-  // this.bird.birdImage.style.top = parseInt(this.bird.birdImage.style.top ) + 5+"px";
-  // this.move = 5;
-  // this.y = parseInt(this.element.style.top);
-  // this.y += this.move;
-  // this.element.style.top = this.y + 'px';
-  // }
+    createGameWorld() {
+        this.background = new GameBackground(this.element);
+        this.background.createBackground();
 
+        this.bird = new Bird(this.element);
+        this.bird.createBird();
 
+        this.obstacles = [];
+
+        //setInterval
+        this.gameMovement = setInterval(() => {
+            this.background.updateBackground();
+            this.bird.applyGravity();
+            if (this.bird.y < 0 || this.bird.y > 450) {
+                this.finishGame();
+            }
+
+            if (mainScreen.background.x % 200 == 0) {
+                let obstacle = new Obstacle(this.element);
+                this.obstacles.push(obstacle);
+                this.element.appendChild(obstacle.element);
+            }
+
+            this.obstacles.forEach((obstacle) => {
+                obstacle.updateObstacle();
+                this.collision(obstacle);
+            })
+            document.onkeydown = (event) => {
+                if (event.keyCode == 32) {
+                    this.bird.updateBird();
+                }
+            }
+        }, 100);
+    }
+
+    collision(obstacle) {
+        let birdPositionY = parseInt(this.bird.birdImage.style.top);
+        let birdPositionX = parseInt(this.bird.birdImage.style.left);
+
+        if ((birdPositionY < obstacle.y + 353) && (birdPositionX + 36 > obstacle.x) && (birdPositionX < obstacle.x + 79) || (birdPositionY > obstacle.y + 441) && (birdPositionX + 36 > obstacle.x) && (birdPositionX < obstacle.x + 79))
+            this.finishGame();
+    }
+
+    finishGame() {
+        clearInterval(this.gameMovement);
+        let resetButton = document.createElement('button');
+        resetButton.style.height = '50px';
+        resetButton.style.width = '80px';
+        resetButton.type = 'button';
+        resetButton.innerHTML = 'RESET';
+        resetButton.style.position = 'absolute';
+        resetButton.style.zIndex = '1';
+        this.element.appendChild(resetButton);
+
+        let text = document.createElement('h1');
+        text.style.color = '#FFF';
+        text.innerHTML = 'GAME OVER!!!!';
+        text.style.top = '150px';
+        text.style.position = 'absolute';
+        text.style.zIndex = '1';
+        this.element.appendChild(text);
+
+        resetButton.onclick = () => {
+            this.element.removeChild(resetButton);
+            this.element.removeChild(text);
+            this.createGameWorld();
+        }
+    }
 }
 
 class GameBackground {
-  constructor(parent) {
-    this.element = parent;
-  }
+    constructor(parent) {
+        this.element = parent;
+    }
 
-  createBackground() {
-    this.imageDiv = document.createElement('div');
-    this.imageDiv.style.position = 'absolute';
-    this.imageDiv.style.margin = '0px';
-    this.imageDiv.style.padding = '0px';
-    this.imageDiv.style.height = '620px';
-    this.imageDiv.style.width = '1202px';
-    this.imageDiv.style.backgroundPositionX = '0px';
-    this.imageDiv.style.backgroundImage = 'url(../5-flappy-bird/images/flappy-back.png)';
-    this.imageDiv.style.backgroundRepeat = 'repeat-x';
-    this.element.appendChild(this.imageDiv);
-  }
+    createBackground() {
+        this.imageDiv = document.createElement('div');
+        this.imageDiv.style.position = 'absolute';
+        this.imageDiv.style.margin = '0px';
+        this.imageDiv.style.padding = '0px';
+        this.imageDiv.style.height = '600px';
+        this.imageDiv.style.width = '100%';
+        this.imageDiv.style.display = 'block';
+        this.imageDiv.style.backgroundPositionX = '0px';
+        this.imageDiv.style.backgroundImage = 'url(../5-flappy-bird/images/flappy-back.png)';
+        this.imageDiv.style.backgroundRepeat = 'repeat-x';
+        this.element.appendChild(this.imageDiv);
+    }
 
-  updateBackground() {
-    this.x = parseInt(this.imageDiv.style.backgroundPositionX);
-    this.x -= 5;
-    this.imageDiv.style.backgroundPositionX = this.x + 'px';
-  }
+    updateBackground() {
+        this.x = parseInt(this.imageDiv.style.backgroundPositionX);
+        this.x -= 5;
+        this.imageDiv.style.backgroundPositionX = this.x + 'px';
+    }
 }
 
 class Bird {
-  constructor(parent) {
-    this.element = parent;
-    this.y = 200;
-  }
-
-  createBird() {
-    this.birdImage = document.createElement('img');
-    this.birdImage.src = 'images/flappy-1.gif';
-    this.birdImage.style.top = this.y + 'px';
-    this.birdImage.style.left = '40px';
-    this.birdImage.style.position = 'absolute';
-    this.element.appendChild(this.birdImage);
-  }
-
-  applyGravity() {
-    this.move = 5;
-    this.y = parseInt(this.birdImage.style.top);
-
-    if (this.y < 450) {
-      this.y += this.move;
-      this.birdImage.style.top = this.y + 'px';
+    constructor(parent) {
+        this.element = parent;
+        this.y = 200;
     }
-  }
 
-  updateBird() {
-    this.move = 15;
-    this.y = parseInt(this.birdImage.style.top);
-
-    if (this.y > 0) {
-      this.y -= this.move;
-      this.birdImage.style.top = this.y + 'px';
+    createBird() {
+        this.birdImage = document.createElement('img');
+        this.birdImage.src = 'images/flappy.gif';
+        this.birdImage.style.top = this.y + 'px';
+        this.birdImage.style.left = '40px';
+        this.birdImage.style.position = 'absolute';
+        this.element.appendChild(this.birdImage);
     }
-  }
+
+    applyGravity() {
+        this.move = 5;
+        this.y = parseInt(this.birdImage.style.top);
+
+        if (this.y < 450) {
+            this.y += this.move;
+            this.birdImage.style.top = this.y + 'px';
+        }
+
+    }
+
+    updateBird() {
+        this.move = 15;
+        this.y = parseInt(this.birdImage.style.top);
+
+        if (this.y > 0) {
+            this.y -= this.move;
+            this.birdImage.style.top = this.y + 'px';
+        }
+
+    }
 
 }
 
 class Obstacle {
-  
+    constructor() {
+        this.element = document.createElement('img');
+        this.element.src = 'images/pipe.png'
+        this.element.style.position = 'absolute';
+        this.y = getRandom(-170, 0);
+        this.element.style.top = this.y + 'px';
+        this.element.style.left = '1400px';
+        this.x = parseInt(this.element.style.left);
+    }
+
+    updateObstacle() {
+        this.x -= 5;
+        this.element.style.left = this.x + 'px';
+    }
+
 }
 
 let mainScreen = new GameWorld(mainWrapper);

@@ -4,9 +4,6 @@ var secondWrapper = document.getElementById('second-wrapper');
 var mainScreen = new GameWorld(mainWrapper);
 mainScreen.create();
 
-// var secondScreen = new GameWorld(secondWrapper);
-// secondScreen.create();
-
 function GameWorld(elementId) {
     this.element = elementId;
     var that = this;
@@ -18,28 +15,19 @@ function GameWorld(elementId) {
         this.car.create();
         this.car.position();
 
-        // gameRun();
-        this.obstacles = new GameObstacles(elementId);
-
+        this.obstacles = [];
         this.gameRun = setInterval(function() {
             that.background.update();
-            // secondScreen.background.update();
 
-            if (mainScreen.background.y % 1000 == 0) {
-                that.obstacles.create();
-                // secondScreen.obstacles.create();
-
-                that.obstacles.position();
-                // secondScreen.obstacles.position();
+            if (mainScreen.background.y % 100 == 0) {
+                var obstacle = new GameObstacles(elementId);
+                that.obstacles.push(obstacle);
+                that.element.appendChild(obstacle.element);
             }
-
-
-            that.obstacles.update();
-            // secondScreen.obstacles.update();
-
-            that.collision(that.car, that.obstacles);
-            // collision(secondScreen.car, secondScreen.obstacles);
-
+            that.obstacles.forEach(function(obstacle) {
+                obstacle.update();
+                that.collision(that.car, obstacle);
+            })
         }, 25);
     }
 
@@ -59,16 +47,7 @@ function GameWorld(elementId) {
 
     this.collision = function(car, obstacle) {
         if ((car.x == obstacle.x) && (obstacle.y >= 480 && obstacle.y <= 540)) {
-            // clearInterval(gameRun);
-            // var answer = confirm("Play Again?")
-            // if (answer==true){
-            //   location.reload();
-            // }
-            // else{
-            //    document.write("Game Over!!!");
-            //  }
             that.finish();
-            // secondScreen.finish();
         }
 
         this.finish = function() {
@@ -164,45 +143,33 @@ function CarElement(parent) {
 }
 
 function GameObstacles(parent) {
-    this.element = parent;
+    var arrayPosition = Math.round(Math.random() * 2);
+    this.parentElement = parent;
     this.obstaclePosition = [144, 222, 300];
 
-    this.create = function() {
-        this.obstacleImage = document.createElement('img');
-        this.obstacleImage.src = 'images/rock.png'
-        this.obstacleImage.style.position = 'absolute';
-        this.obstacleImage.style.top = '0px';
-        this.element.appendChild(this.obstacleImage);
-    }
+    this.element = document.createElement('img');
+    this.element.src = 'images/rock.png'
+    this.element.style.position = 'absolute';
+    this.element.style.top = '0px';
 
-    this.position = function() {
-        var arrayPosition = Math.round(Math.random() * 2);
-        this.x = this.obstaclePosition[arrayPosition];
-        this.obstacleImage.style.left = this.x + 'px';
-    }
+    this.x = this.obstaclePosition[arrayPosition];
+    this.element.style.left = this.x + 'px';
 
     this.update = function() {
-        // console.log(this);
-        this.y = parseInt(this.obstacleImage.style.top);
+        this.y = parseInt(this.element.style.top);
         this.y += 5;
-        this.obstacleImage.style.top = this.y + 'px';
+        this.element.style.top = this.y + 'px';
         if (this.y == 560) {
-            this.element.removeChild(this.obstacleImage);
+            this.parentElement.removeChild(this.element);
         }
     }
 
 }
 
-
-
 document.onkeydown = function(event) {
     if (event.keyCode == 37) {
         mainScreen.car.update(37);
-        // secondScreen.car.update(37);
-        // secondScreen.car.update(39);
     } else if (event.keyCode == 39) {
         mainScreen.car.update(39);
-        // secondScreen.car.update(39);
-        // secondScreen.car.update(37);
     }
 }
