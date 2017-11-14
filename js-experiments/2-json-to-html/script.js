@@ -32,7 +32,7 @@ var data = [
 ];
 
 
-var container = document.getElementById("container");
+var mainWrapper = document.getElementById("main-wrapper");
 var innerContainer=document.createElement("div");
 innerContainer.classList.add("test-class");
 
@@ -54,5 +54,5 @@ for(var j=0; j<children.length; j++){
     innerContainer.appendChild(childDiv);
 }
 
-container.appendChild(innerContainer);
+mainWrapper.appendChild(innerContainer);
 
