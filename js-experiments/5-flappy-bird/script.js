@@ -40,7 +40,7 @@ class GameWorld {
         this.gameMovement = setInterval(() => {
             this.background.updateBackground();
             this.bird.applyGravity();
-            if (this.bird.y < 0 || this.bird.y > 450) {
+            if (this.bird.y < 0 || this.bird.y > 449) {
                 this.finishGame();
             }
 
@@ -108,7 +108,7 @@ class GameBackground {
         this.imageDiv.style.margin = '0px';
         this.imageDiv.style.padding = '0px';
         this.imageDiv.style.height = '600px';
-        this.imageDiv.style.width = '100%';
+        this.imageDiv.style.width = '1000px';
         this.imageDiv.style.display = 'block';
         this.imageDiv.style.backgroundPositionX = '0px';
         this.imageDiv.style.backgroundImage = 'url(../5-flappy-bird/images/flappy-back.png)';
@@ -169,7 +169,7 @@ class Obstacle {
         this.element.style.position = 'absolute';
         this.y = getRandom(-170, 0);
         this.element.style.top = this.y + 'px';
-        this.element.style.left = '1400px';
+        this.element.style.left = '940px';
         this.x = parseInt(this.element.style.left);
     }
 
