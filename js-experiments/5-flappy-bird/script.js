@@ -140,7 +140,7 @@ class GameBackground {
     this.x = parseInt(this.imageDiv.style.backgroundPositionX);
     this.x -= 5;
     this.imageDiv.style.backgroundPositionX = this.x + 'px';
-    document.getElementById('score').innerText=mainScreen.counter;
+    document.getElementById('score').innerText = mainScreen.counter;
   }
 }
 
