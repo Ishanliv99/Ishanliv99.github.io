@@ -22,8 +22,13 @@ class GameWorld {
 
     this.element.style.overflow = 'hidden';
 
+    this.instructions = document.createElement('h1');
+    this.instructions.innerHTML = 'Space Bar to control bird';
+    this.element.appendChild(this.instructions);
+
     this.playButton.onclick = () => {
       this.element.removeChild(this.playButton);
+      this.element.removeChild(this.instructions);
       this.createGameWorld();
     }
   }
