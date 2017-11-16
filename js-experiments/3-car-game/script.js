@@ -74,7 +74,7 @@ function GameWorld(elementId) {
     this.element.appendChild(playButton);
 
     var instructions = document.createElement('h2');
-    instructions.innerHTML = 'Movement : Left and Right Arrow Key Shoot : Space Bar';
+    instructions.innerHTML = 'Movement : Left and Right Arrow Key <br> Shoot : Space Bar';
     this.element.appendChild(instructions);
 
     playButton.onclick = function() {

@@ -1,4 +1,4 @@
-var maxCircleSize = 10;
+  var maxCircleSize = 10;
 var speed = 0.03;
 var numRows = 10;
 var numCols = 16;
@@ -7,7 +7,7 @@ var phase = 0;
 var frameCount = 0;
 
 
-map_range = function(value, low1, high1, low2, high2) {
+map = function(value, low1, high1, low2, high2) {
   return low2 + (high2 - low2) * ((value - low1) / (high1 - low1));
 }
 
@@ -24,10 +24,10 @@ function draw() {
   phase = frameCount * speed;
 
   for (var i = 0; i < 2; i += 1) {
-    var strandPhase = phase + map_range(i, 0, numStrands, 0, 2 * Math.PI);
+    var strandPhase = phase + map(i, 0, numStrands, 0, 2 * Math.PI);
     for (var j = 0; j < numCols; j += 1) {
-      var colOffset = map_range(j, 0, numCols, 0, 2 * Math.PI);
-      var x = map_range(j, 0, numCols, 50, canvas.width - 50);
+      var colOffset = map(j, 0, numCols, 0, 2 * Math.PI);
+      var x = map(j, 0, numCols, 50, canvas.width - 50);
       for (var k = 0; k < numRows; k += 1) {
         var y = canvas.height / 3 + k * 13 + Math.sin(strandPhase + colOffset) * 50;
         var sizeOffset = (Math.cos(strandPhase - (k / numRows) + colOffset) + 1) * 0.5;
