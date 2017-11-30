@@ -258,7 +258,10 @@
     background-position: top;
 }
 
-.footer-content-top {}
+.footer-content-top a{
+    color: #FFF;
+    text-decoration: none;
+}
 
 .footer-top-left {
     color: #FFFFFF;
