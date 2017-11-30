@@ -8,7 +8,7 @@
 
 .main-container {
     width: 100%;
-    /*overflow-x: hidden;*/
+    overflow-x: hidden;
 }
 
 .header-content-top {
@@ -153,6 +153,7 @@
 
 .related-image-container {
     padding-bottom: 40px;
+    list-style: none;
     /*text-align: center;*/
 }
 
@@ -311,7 +312,7 @@
     }
 
     .header-top-menu li {
-        padding: 0px 18px;
+        padding: 0px 17px;
         clear: none;
         width: auto;
     }
@@ -388,6 +389,8 @@
     .basic-button {
         float: right;
         padding: 0px;
+/*        list-style: none;
+        display: inline;*/
     }
 
     .button {

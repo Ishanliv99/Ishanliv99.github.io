@@ -2,7 +2,7 @@ let mainWrapper = document.getElementById('main-wrapper');
 mainWrapper.style.height = '600px';
 mainWrapper.style.position = 'relative';
 
-let getRandom = function(min, max) {
+let getRandom = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -172,7 +172,6 @@ class Bird {
       this.y += this.move;
       this.birdImage.style.top = this.y + 'px';
     }
-
   }
 
   updateBird() {
@@ -183,9 +182,7 @@ class Bird {
       this.y -= this.move;
       this.birdImage.style.top = this.y + 'px';
     }
-
   }
-
 }
 
 class Obstacle {
@@ -203,7 +200,6 @@ class Obstacle {
     this.x -= 5;
     this.element.style.left = this.x + 'px';
   }
-
 }
 
 let mainScreen = new GameWorld(mainWrapper);
